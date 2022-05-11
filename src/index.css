@@ -1,13 +1,160 @@
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    /*cursor:none;*/
+    /*overflow-x: hidden;*/
+    color: var(--type-color) !important;
+    background-color: var(--background);
+    will-change: overflow;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container-fluid {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.pcd-important-info {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.pcd-important-info *::selection,
+.pcd-important-info *::-moz-selection{
+    background: var(--type-color);
+    color: var(--responsive-header-color) !important;
+}
+
+a {
+    color:inherit;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: var(--border-size) solid rgba(0,0,0,0);
+}
+
+a:hover {
+    color:inherit;
+    cursor: pointer;
+    border-color: var(--type-color);
+    text-decoration: none;
+}
+
+p a {
+    border-color: var(--type-color);
+}
+
+p a:hover {
+    font-style: italic;
+}
+
+a .not-underline:hover, a.not-underline:hover {
+    border-bottom: var(--border-size) solid rgba(0,0,0,0) !important;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.spacing {
+    height: calc(var(--line-height) * 5);
+}
+
+.border-bt {
+    border-bottom: var(--border-size) solid var(--type-color);
+}
+
+.colored-background {
+    background: var(--responsive-header-color);
+    color: var(--type-color);
+}
+
+.colored-background *::selection{
+    background: var(--type-color);
+    color: var(--responsive-header-color) !important;
+}
+
+.colored-background *::-moz-selection{
+    background: var(--type-color);
+    color: var(--responsive-header-color) !important;
+}
+
+
+
+h1, h3, h3, h4, h5, h6, .h4 {
+    margin:0;
+}
+
+h1 {
+    font-size: var(--base-size);
+}
+
+h2, .headline p {
+    font-size: 7rem;
+    overflow-wrap: break-word;
+    line-height: var(--line-height);
+}
+
+h1 {
+    /*font-weight: 800;*/
+}
+
+h2, h3 {
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: calc(var(--line-height) * 0.93);
+}
+
+h4, .h4 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: var(--line-height);
+}
+
+
+.p, p, li {
+    font-size: var(--base-size);
+    font-weight: 500;
+    line-height: var(--line-height);
+    margin: 0 0 .675em;
+}
+
+.upper {
+    letter-spacing: .02em;
+    text-transform: uppercase;
+}
+
+p.small, .small {
+    font-size:1.6em;
+    font-weight: 300;
+    line-height: var(--line-height);
+    margin-bottom: var(--line-height);
+}
+
+.small {
+    line-height: var(--line-height);
+}
+
+.light {
+    font-size:var(--base-size);
+    font-weight: 300;
+    line-height: var(--line-height);
+}
+
+.s-t {
+    margin-top: calc(var(--line-height) * 3);
+}
+
+.s-t-2 {
+    margin-top: calc(var(--line-height) * 6);
+}
+
+.s-b {
+    margin-bottom: calc(var(--line-height) * 2);
 }
