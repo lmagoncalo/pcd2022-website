@@ -18,7 +18,7 @@ var connectionOptions =  {
     "transports" : ["websocket"]
 };
 
-let socket = io.connect('https://localhost:5000',connectionOptions);
+// let socket = io.connect('http://localhost:5000',connectionOptions);
 
 
 class App extends Component {
@@ -65,7 +65,7 @@ class App extends Component {
                 <NavBar/>
                 <Container>
                     <P5Wrapper
-                        color={this.typoc} socket={socket}
+                        color={this.typoc} socket={this.socket}
                     />
                 </Container>
                 <Footer/>
