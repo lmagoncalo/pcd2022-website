@@ -8,7 +8,7 @@ import {Component} from "react";
 import Footer from "./Components/Footer";
 import NavBar from "./Components/NavBar";
 import {Container} from "react-bootstrap";
-// import { socketID, socket } from './Components/socket';
+import { socketID, socket } from './Components/socket';
 
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
                 <NavBar/>
                 <Container>
                     <P5Wrapper
-                        color={this.typoc} //socket={socket}
+                        color={this.typoc} socket={socket}
                     />
                 </Container>
                 <Footer/>
