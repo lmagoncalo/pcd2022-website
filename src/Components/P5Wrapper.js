@@ -6,11 +6,10 @@ export default class P5Wrapper extends Component {
         super(props);
         this.state = {
             fill: props.color,
-            width: 0,
-            height: props.height,
             n_width: 100,
             n_height: 45,
-            socket: props.socket
+            socket: props.socket,
+            isEnabled: props.isEnabled,
         };
     }
 
@@ -63,22 +62,8 @@ export default class P5Wrapper extends Component {
             this.placed.push({x: parseInt(p5.random(this.state.n_width)), y: parseInt(p5.random(this.state.n_height)), color: AVAILABLE_COLOURS[Math.round(Math.random()*(AVAILABLE_COLOURS.length-1))]})
         }
         */
-        p5.background('#dddddd');
+        p5.background(this.bkc);
     };
-
-    /*
-    draw = (p5) => {
-        for(let i=0; i<this.placed.length; i+=1){
-            this.drawOnCanvas(p5, this.placed[i].x, this.placed[i].y, this.placed[i].color);
-        }
-
-        if ((0 <= p5.mouseX <= this.state.height)){
-            let x = Math.floor(p5.mouseX / this.state.cell_width);
-            let y = Math.floor(p5.mouseY / this.state.cell_height);
-            this.drawOnCanvas(p5, x, y, this.state.fill + '77');
-        }
-    };
-    */
 
     draw = (p5) => {
         if ((0 <= p5.mouseX <= this.state.height)){
@@ -97,18 +82,17 @@ export default class P5Wrapper extends Component {
     };
 
 
-    mouseClicked = p5 => {
+    mouseReleased = p5 => {
         if(p5.mouseButton === 'right') {
 
-        } else if(p5.mouseButton === 'left') {
+        } else if(p5.mouseButton === 'left' && this.state.isEnabled()) {
             let x = Math.floor(p5.mouseX / this.state.cell_width);
             let y = Math.floor(p5.mouseY / this.state.cell_height);
 
             this.drawOnCanvas(p5, x, y, this.state.fill);
             // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
-            console.log(x, y);
+            // console.log(x, y);
         }
-
     };
 
     clean = p5 => {
@@ -116,7 +100,7 @@ export default class P5Wrapper extends Component {
     };
 
     render() {
-        return <Sketch className='p5-wrapper' setup={this.setup} mouseClicked={this.mouseClicked}/>;
+        return <Sketch className='p5-wrapper' setup={this.setup} mouseReleased={this.mouseReleased}/>;
     }
 
 }

@@ -7,7 +7,7 @@ import {PATH} from "../params";
 class NavBar extends Component{
     render() {
         return (
-            <Navbar id="navbar" variant="dark" style={{backgroundColor: "#FA165A", borderBottom: "1px solid white"}} fixed="top" ref={this.mainHeaderNav}>
+            <Navbar id="navbar" variant="dark" style={{backgroundColor: "var(--main-color)", borderBottom: "1px solid white"}} fixed="top" ref={this.mainHeaderNav}>
                 <Container fluid>
                     <Navbar.Brand href="#">Processing Community Day @ Coimbra 2022</Navbar.Brand>
                     <Nav className="justify-content-end" fill>

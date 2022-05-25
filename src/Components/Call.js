@@ -15,7 +15,7 @@ class Call extends Component {
 
     render() {
         return (
-            <section className="call-inner">
+            <section className="call-inner" style={{color: "var(--main-color)"}}>
                 <h3>Call for Posters</h3>
                 <div className="call-into">
                     <p>

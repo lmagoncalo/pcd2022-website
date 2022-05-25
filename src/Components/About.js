@@ -19,7 +19,7 @@ class About extends Component {
 
     render() {
         return (
-            <section className="about-inner">
+            <section className="about-inner" style={{color: "var(--main-color)"}}>
                 <h3>About</h3>
                 <div className="about-into">
                     <p>The Processing Community Day initiative is supported by the Processing Foundation and has the

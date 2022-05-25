@@ -1,4 +1,4 @@
-import {AVAILABLE_COLOURS, COOKIE_NAME, COOKIES_FADE_TIMEOUT, PATH} from "./params";
+// import {AVAILABLE_COLOURS, COOKIE_NAME, COOKIES_FADE_TIMEOUT, PATH} from "./params";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,11 +7,11 @@ import P5Wrapper from "./Components/P5Wrapper";
 import {Component} from "react";
 import Footer from "./Components/Footer";
 import NavBar from "./Components/NavBar";
-import {Col, Container, Modal, Offcanvas, Row} from "react-bootstrap";
+import {Container, Offcanvas} from "react-bootstrap";
 import About from "./Components/About";
 import Call from "./Components/Call";
-import AnimateHeight from "react-animate-height";
-// import { socketID, socket } from './Components/socket';
+// import { socket } from './Components/socket';
+import {AVAILABLE_COLOURS} from "./params";
 
 
 class App extends Component {
@@ -22,11 +22,20 @@ class App extends Component {
             top: "",
             showAbout: false,
             showCall: false,
-
+            enabled: true,
+            color: AVAILABLE_COLOURS[Math.floor(Math.random()*AVAILABLE_COLOURS.length)]
         };
+
+        // change colour of header in responsive
+        document.documentElement.style.setProperty('--main-color', this.state.color);
 
         this.openAbout = this.openAbout.bind(this);
         this.openCall = this.openCall.bind(this);
+        this.isEnabled = this.isEnabled.bind(this);
+    }
+
+    isEnabled() {
+        return (!this.state.showAbout && !this.state.showCall);
     }
 
     openAbout() {
@@ -58,29 +67,26 @@ class App extends Component {
     }
 
     render () {
-        const showAbout = this.state.showAbout;
-        const showCall = this.state.showCall;
-        const p5height = window.innerHeight - (this.state.top + this.state.bottom);
         return (
             <Container>
                 <NavBar/>
-                <Container style={{marginTop: this.state.top, marginBottom: this.state.bottom, background: "#00ff00"}}>
-                    <Offcanvas show={this.state.showAbout} onHide={this.openAbout} backdrop={false} placement={'start'} style={{marginTop: this.state.top, marginBottom: this.state.bottom, width: "50%"}}>
+                <Container style={{marginTop: this.state.top, marginBottom: this.state.bottom}}>
+                    <Offcanvas show={this.state.showAbout} onHide={this.openAbout} backdrop={false} placement={'start'} style={{marginTop: this.state.top, marginBottom: this.state.bottom, width: "50%", backgroundColor:"#D9D9D9"}}>
                         <Offcanvas.Header closeButton/>
                         <Offcanvas.Body>
                             <About/>
                         </Offcanvas.Body>
                     </Offcanvas>
 
-                    <Offcanvas show={this.state.showCall} onHide={this.openCall} backdrop={false} placement={'end'} style={{marginTop: this.state.top, marginBottom: this.state.bottom, width: "50%"}}>
+                    <Offcanvas show={this.state.showCall} onHide={this.openCall} backdrop={false} placement={'end'} style={{marginTop: this.state.top, marginBottom: this.state.bottom, width: "50%", backgroundColor:"#D9D9D9"}}>
                         <Offcanvas.Header closeButton/>
                         <Offcanvas.Body>
                             <Call/>
                         </Offcanvas.Body>
                     </Offcanvas>
 
-                    <P5Wrapper
-                        color={"#ff0000"} height={p5height} // socket={socket}
+                    <P5Wrapper isEnabled={this.isEnabled}
+                        color={this.state.color} // socket={socket}
                     />
                     <div style={{position:"fixed"}}>Ola o meu nome é Julia.</div>
                 </Container>

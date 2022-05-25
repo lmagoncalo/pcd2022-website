@@ -1,4 +1,4 @@
-import {Container, Nav, Navbar} from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 import * as React from "react";
 import {Component} from "react";
 
@@ -12,8 +12,8 @@ class Footer extends Component{
 
     render() {
         return (
-            <Navbar fixed="bottom" id="footer" className="justify-content-center" style={{backgroundColor: "#FA165A", borderTop: "1px solid white"}}>
-                <Nav.Link onClick={this.openAbout} style={{ width: "50%", textAlign: "center", color:"#ffffff"}}>
+            <Navbar fixed="bottom" id="footer" className="justify-content-center" style={{backgroundColor: "var(--main-color)", borderTop: "1px solid white"}}>
+                <Nav.Link onClick={this.openAbout} style={{ width: "50%", textAlign: "center", color:"#ffffff", outline: "1px solid white", objectFit: "fill"}}>
                     <span>About</span>
                 </Nav.Link>
                 <Nav.Link onClick={this.openCall} style={{width: "50%", textAlign: "center", color:"#ffffff"}}>
