@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Sketch from 'react-p5';
-import {AVAILABLE_COLOURS} from "../params";
 
 export default class P5Wrapper extends Component {
     constructor(props) {
@@ -8,18 +7,17 @@ export default class P5Wrapper extends Component {
         this.state = {
             fill: props.color,
             width: 0,
-            height: 0,
-            n_width: 80,
-            n_height: 20,
+            height: props.height,
+            n_width: 100,
+            n_height: 45,
             socket: props.socket
         };
     }
 
     bkc = '#FFFFFF';
-    placed = [{x: 13, y: 5}, {x: 13, y: 6}, {x: 13, y: 7}, {x: 13, y: 8}, {x: 13, y: 9}, {x: 13, y: 10}, {x: 13, y: 11}, {x: 14, y: 5}, {x: 15, y: 5}, {x: 16, y: 6}, {x: 16, y: 7}, {x: 15, y: 8}, {x: 14, y: 8}, {x: 18, y: 6}, {x: 19, y: 5}, {x: 20, y: 5}, {x: 18, y: 7}, {x: 18, y: 8}, {x: 18, y: 9}, {x: 18, y: 10}, {x: 19, y: 11}, {x: 20, y: 11}, {x: 21, y: 11}, {x: 21, y: 5}, {x: 23, y: 5}, {x: 23, y: 6}, {x: 23, y: 7}, {x: 23, y: 8}, {x: 23, y: 9}, {x: 23, y: 10}, {x: 23, y: 11}, {x: 24, y: 5}, {x: 24, y: 11}, {x: 25, y: 11}, {x: 26, y: 10}, {x: 26, y: 9}, {x: 26, y: 8}, {x: 26, y: 7}, {x: 25, y: 5}, {x: 26, y: 6}, {x: 31, y: 6}, {x: 32, y: 5}, {x: 33, y: 5}, {x: 34, y: 6}, {x: 34, y: 7}, {x: 33, y: 8}, {x: 32, y: 8}, {x: 31, y: 9}, {x: 31, y: 10}, {x: 32, y: 11}, {x: 33, y: 11}, {x: 34, y: 11}, {x: 36, y: 10}, {x: 37, y: 11}, {x: 38, y: 11}, {x: 39, y: 10}, {x: 37, y: 5}, {x: 38, y: 5}, {x: 39, y: 6}, {x: 36, y: 6}, {x: 36, y: 7}, {x: 36, y: 8}, {x: 36, y: 9}, {x: 39, y: 7}, {x: 39, y: 8}, {x: 39, y: 9}, {x: 41, y: 6}, {x: 42, y: 5}, {x: 43, y: 5}, {x: 44, y: 6}, {x: 44, y: 7}, {x: 43, y: 8}, {x: 42, y: 8}, {x: 41, y: 9}, {x: 41, y: 10}, {x: 42, y: 11}, {x: 43, y: 11}, {x: 44, y: 11}, {x: 46, y: 9}, {x: 46, y: 10}, {x: 47, y: 11}, {x: 48, y: 11}, {x: 49, y: 11}, {x: 47, y: 8}, {x: 48, y: 8}, {x: 49, y: 7}, {x: 49, y: 6}, {x: 48, y: 5}, {x: 47, y: 5}, {x: 46, y: 6}];
 
     componentDidMount() {
-        this.setSocketListeners();
+        // this.setSocketListeners();
     }
 
     setSocketListeners () {
@@ -28,7 +26,6 @@ export default class P5Wrapper extends Component {
         });
 
         this.state.socket.on('draw-pixels', data => {
-            console.log("AQUI, draw pixels");
             for (let i = 0; i < data.length; i++) {
                 let pixel = data[i];
                 // console.log(pixel);
@@ -38,23 +35,24 @@ export default class P5Wrapper extends Component {
     }
 
     setup = (p5, canvasParentRef) => {
+        this.setState({width: p5.windowWidth});
+        this.setState({p5: p5});
+
         let navbar = document.getElementById("navbar");
-        //let footer = document.getElementById("footer");
+        let footer = document.getElementById("footer");
 
         // let availableHeight = p5.windowHeight - (navbar.offsetHeight + footer.offsetHeight);
-        let x_cell_size = parseInt(p5.windowWidth / this.state.n_width);
-        let y_cell_size = x_cell_size;
-        let canvas_height = (y_cell_size * this.state.n_height);
+        let cell_size_x = p5.windowWidth / this.state.n_width;
+        this.setState({cell_width: cell_size_x});
 
-        this.setState({width: p5.windowWidth});
-        this.setState({height: canvas_height});
-        this.setState({p5: p5});
+        let canvas_height =  p5.windowHeight - (navbar.offsetHeight + footer.offsetHeight);
+        console.log(canvas_height / this.state.n_height, parseInt(canvas_height / this.state.n_height))
+        let cell_size_y = canvas_height / this.state.n_height;
+        this.setState({cell_height: cell_size_y});
+
         let canvas = p5.createCanvas(p5.windowWidth, canvas_height).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
 
         canvas.position(0, navbar.offsetHeight);
-
-        this.setState({cell_width: x_cell_size});
-        this.setState({cell_height: y_cell_size});
 
         /*
         for(let i=0; i<this.placed.length; i+=1){
@@ -107,8 +105,8 @@ export default class P5Wrapper extends Component {
             let y = Math.floor(p5.mouseY / this.state.cell_height);
 
             this.drawOnCanvas(p5, x, y, this.state.fill);
-            // this.placed.push({x: x, y: y, color: this.state.fill});
-            this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
+            // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
+            console.log(x, y);
         }
 
     };

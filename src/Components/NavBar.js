@@ -1,4 +1,4 @@
-import {Col, Nav, Navbar} from "react-bootstrap";
+import {Col, Container, Nav, Navbar, Row} from "react-bootstrap";
 import * as React from "react";
 import {Component} from "react";
 import {PATH} from "../params";
@@ -7,17 +7,17 @@ import {PATH} from "../params";
 class NavBar extends Component{
     render() {
         return (
-            <Navbar id="navbar" ref={this.mainHeaderNav} className="main-header-outer" fixed="top" style={{backgroundColor: "#ff0000"}}>
-                <Nav className="mr-auto w-100 main-header-inner">
-                    <Col xs={12} sm={9} md={9} lg={9}>
-                        <h1>
-                            <Nav.Link href={PATH} className="not-underline">
-                                <span className="not-underline">PCD@Coimbra 2022</span>
-                            </Nav.Link>
-                        </h1>
-                    </Col>
-                </Nav>
+            <Navbar id="navbar" variant="dark" style={{backgroundColor: "#FA165A", borderBottom: "1px solid white"}} fixed="top" ref={this.mainHeaderNav}>
+                <Container fluid>
+                    <Navbar.Brand href="#">Processing Community Day @ Coimbra 2022</Navbar.Brand>
+                    <Nav className="justify-content-end" fill>
+                        <Nav.Link href="https://www.facebook.com/pcdcoimbra">Fb</Nav.Link>
+                        <Nav.Link href="https://www.instagram.com/pcdcoimbra/">IG</Nav.Link>
+                        <Nav.Link href="https://twitter.com/pcdcoimbra">Tw</Nav.Link>
+                    </Nav>
+                </Container>
             </Navbar>
+
         )
     }
 }

@@ -6,13 +6,18 @@ import App from './App';
 import NotFound from './Not-Found';
 
 import reportWebVitals from './reportWebVitals';
+import About from "./Components/About";
+import Call from "./Components/Call";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
         <Routes>
             <Route exact path={process.env.PUBLIC_URL+"/"} element={<Navigate replace to="/2022" />}/>
-            <Route exact path={process.env.PUBLIC_URL+"/open-call"}/>
+            {/*
+            <Route exact path={process.env.PUBLIC_URL+"/2022/call"} element={<Call/>}/>
+            <Route exact path={process.env.PUBLIC_URL+"/2022/about"} element={<About/>}/>
+            */}
             <Route exact path={process.env.PUBLIC_URL+"/2022"} element={<App/>}/>
             <Route path="*" element={<NotFound/>}/>nd/>
         </Routes>
