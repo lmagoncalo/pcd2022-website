@@ -1,8 +1,92 @@
-@font-face {
-    font-family: myFirstFont;
-    src: url(PCD22-Regular.otf);
+:root {
+    --main-color: #0000ff
 }
 
-div {
-    font-family: myFirstFont;
+@font-face {
+    font-family: pcd_regular;
+    src: url(PCD22-Regular.ttf);
+}
+
+@font-face {
+    font-family: pcd_bold;
+    src: url(PCD22_Bold-Regular.ttf);
+}
+
+
+div{
+    font-family: pcd_regular;
+    color: var(--main-color);
+}
+
+div a, div a:hover{
+    font-family: pcd_regular;
+    color: var(--main-color);
+}
+
+#navbar, #navbar .navbar-brand{
+    background: var(--main-color);
+    font-size: 2.5rem;
+    padding: 0.1em 0.4em 0.1em 0.4em;
+}
+
+
+
+#footer .about_call_menu{
+    width: 50%;
+    text-align: center;
+    color:#ffffff;
+    outline: 0px solid white;
+    objectFit: fill;
+}
+#footer{
+    background: var(--main-color);
+    border-top:1px solid white;
+}
+
+.offcanvas.about_call_div{
+    width: 50%;
+    background: #F2F2F2;
+    border-width: 0px 3px 0px 3px;
+    border-color: var(--main-color);
+}
+
+.title_div{/*about and call title*/
+    font-size: 1.9em;
+}
+
+.sub_title_div{
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.sub_topic {
+    margin-top: 1.5em;
+}
+
+.offcanvas .offcanvas-body, .offcanvas .offcanvas-header {
+    padding: 2.3rem 2.3rem 0rem 2.3rem;
+    font-size: 1.7em;
+}
+
+.offcanvas .offcanvas-body, .offcanvas .offcanvas-header {
+    padding-left: 2.3rem;
+    padding-right: 2.3rem;
+    font-size: 1.7em;
+}
+
+.offcanvas .offcanvas-header{
+    padding-top: 2.3rem;
+    padding-bottom: 0rem;
+
+}
+
+.offcanvas .offcanvas-body{
+    padding-top: 1.2rem;
+    padding-bottom: 2.3rem;
+
+}
+.btn-close, .btn-close:hover{
+    opacity: 1;
+    filter: invert(8%) sepia(100%) saturate(6481%) hue-rotate(246deg) brightness(102%) contrast(143%);
+    fill:none;
 }

@@ -19,8 +19,8 @@ class About extends Component {
 
     render() {
         return (
-            <section className="about-inner" style={{color: "var(--main-color)"}}>
-                <h3>About</h3>
+            <section className="about-inner" >
+                <p className="title_div">About</p>
                 <div className="about-into">
                     <p>The Processing Community Day initiative is supported by the Processing Foundation and has the
                         goal of fostering programming and creative coding as tools among students, researchers and
@@ -33,8 +33,8 @@ class About extends Component {
                     </p>
                     <p>Subscribe our newsletter <a href="https://mailchi.mp/c04373c6b862/pcdcoimbra" target="_blank" rel="noopener noreferrer">here</a>.</p>
                 </div>
-                <div className="venue s-t">
-                    <h4 className="upper">Location</h4>
+                <div className="sub_topic s-t">
+                    <h4 className="sub_title_div">Location</h4>
                     <p>
                         Departamento de Engenharia Informática<br/>
                         Faculdade de Ciências e Tecnologia <br/>
@@ -45,14 +45,14 @@ class About extends Component {
                         <a href="https://goo.gl/maps/LzxChBj7hqr1KsH99" target="_blank" rel="noopener noreferrer">40.186421, -8.415976</a>
                     </p>
                 </div>
-                <div className="contact s-t">
-                    <h4 className="upper">contacts</h4>
+                <div className="sub_topic s-t">
+                    <h4 className="sub_title_div">Contacts</h4>
                     <p>
                         <a href="mailto:pcdcoimbra@dei.uc.pt" target="_top" rel="noopener noreferrer">pcdcoimbra@dei.uc.pt</a><br/>
                     </p>
                 </div>
-                <div className="organisation s-t">
-                    <h4 className="upper">Organising Committee</h4>
+                <div className="sub_topic s-t">
+                    <h4 className="sub_title_div">Organising Committee</h4>
                     <p>
                         <a href="https://cdv.dei.uc.pt/authors/jessica-parente/" >Jéssica Parente</a><br/>
                         <a href="https://cdv.dei.uc.pt/authors/luis-goncalo/" >Luís Gonçalo</a><br/>
@@ -60,18 +60,17 @@ class About extends Component {
                         <a href="https://cdv.dei.uc.pt/authors/pedro-silva/" >Pedro Silva</a><br/>
                         <a href="https://sergiorebelo.work">Sérgio Rebelo</a><br/>
                         <a href="https://cdv.dei.uc.pt/authors/tiago-martins/">Tiago Martins</a><br/>
-                        <a href="https://cdv.dei.uc.pt/authors/joao-couceiro-e-castro/" >João Couceiro e Castro</a><br/>
                         <a href="https://cdv.dei.uc.pt/authors/penousal-machado/">Penousal Machado</a><br/>
                     </p>
                 </div>
-                <div className="others s-t">
-                    <h4 className="upper">Similar events</h4>
+                <div className="sub_topic s-t">
+                    <h4 className="sub_title_div">Similar events</h4>
                     <p>
                         <a href="https://pcd.fba.up.pt/2020/">PCD @ Porto</a><br/>
                         <a href="http://processing.ideiarxd.com/">PCD @ Lisbon</a>
                     </p>
                 </div>
-                <div className="support s-t">
+                <div className="sub_topic s-t">
                     <Row className="s-b">
                         <Col xs={9} sm={7}>
                             <p className="small"><b>PDC @ Coimbra 2022 is organised by</b></p>

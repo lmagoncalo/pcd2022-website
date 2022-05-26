@@ -12,11 +12,11 @@ class Footer extends Component{
 
     render() {
         return (
-            <Navbar fixed="bottom" id="footer" className="justify-content-center" style={{backgroundColor: "var(--main-color)", borderTop: "1px solid white"}}>
-                <Nav.Link onClick={this.openAbout} style={{ width: "50%", textAlign: "center", color:"#ffffff", outline: "1px solid white", objectFit: "fill"}}>
+            <Navbar fixed="bottom" id="footer" className="justify-content-center">
+                <Nav.Link onClick={this.openAbout} className="about_call_menu">
                     <span>About</span>
                 </Nav.Link>
-                <Nav.Link onClick={this.openCall} style={{width: "50%", textAlign: "center", color:"#ffffff"}}>
+                <Nav.Link onClick={this.openCall} className="about_call_menu">
                     <span>Call</span>
                 </Nav.Link>
             </Navbar>

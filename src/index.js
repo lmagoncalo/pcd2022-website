@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import './index.css';
 import App from './App';
 import NotFound from './Not-Found';
 
 import reportWebVitals from './reportWebVitals';
-import Editor from "./Components/Editor";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
         <Routes>
             <Route exact path={process.env.PUBLIC_URL+"/"} element={<App/>}/>
-            <Route exact path={process.env.PUBLIC_URL+"/editor"} element={<Editor/>}/>
             <Route path="*" element={<NotFound/>}/>nd/>
         </Routes>
     </Router>

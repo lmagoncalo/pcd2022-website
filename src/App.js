@@ -71,15 +71,16 @@ class App extends Component {
             <Container>
                 <NavBar/>
                 <Container style={{marginTop: this.state.top, marginBottom: this.state.bottom}}>
-                    <Offcanvas show={this.state.showAbout} onHide={this.openAbout} backdrop={false} placement={'start'} style={{marginTop: this.state.top, marginBottom: this.state.bottom, width: "50%", backgroundColor:"#D9D9D9"}}>
-                        <Offcanvas.Header closeButton/>
+                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showAbout} onHide={this.openAbout} backdrop={false} placement={'start'} >
+                        <Offcanvas.Header closeButton disabled/>
+
                         <Offcanvas.Body>
                             <About/>
                         </Offcanvas.Body>
                     </Offcanvas>
 
-                    <Offcanvas show={this.state.showCall} onHide={this.openCall} backdrop={false} placement={'end'} style={{marginTop: this.state.top, marginBottom: this.state.bottom, width: "50%", backgroundColor:"#D9D9D9"}}>
-                        <Offcanvas.Header closeButton/>
+                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showCall} onHide={this.openCall} backdrop={false} placement={'end'}>
+                        <Offcanvas.Header variant='custom' closeButton/>
                         <Offcanvas.Body>
                             <Call/>
                         </Offcanvas.Body>
@@ -88,7 +89,6 @@ class App extends Component {
                     <P5Wrapper isEnabled={this.isEnabled}
                         color={this.state.color} // socket={socket}
                     />
-                    <div style={{position:"fixed"}}>Ola o meu nome é Julia.</div>
                 </Container>
                 <Footer openAbout={this.openAbout} openCall={this.openCall}/>
             </Container>
