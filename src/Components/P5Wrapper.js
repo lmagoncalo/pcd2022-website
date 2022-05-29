@@ -16,7 +16,7 @@ export default class P5Wrapper extends Component {
     bkc = '#FFFFFF';
 
     componentDidMount() {
-        // this.setSocketListeners();
+        this.setSocketListeners();
     }
 
     setSocketListeners () {
@@ -90,7 +90,7 @@ export default class P5Wrapper extends Component {
             let y = Math.floor(p5.mouseY / this.state.cell_height);
 
             this.drawOnCanvas(p5, x, y, this.state.fill);
-            // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
+            this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
             // console.log(x, y);
         }
     };
@@ -102,6 +102,5 @@ export default class P5Wrapper extends Component {
     render() {
         return <Sketch className='p5-wrapper' setup={this.setup} mouseReleased={this.mouseReleased}/>;
     }
-
 }
 

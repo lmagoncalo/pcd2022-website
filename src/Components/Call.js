@@ -5,7 +5,6 @@ class Call extends Component {
     constructor(props) {
         super(props);
 
-        // this.path = '/2022/';
         this.path = '/';
 
         this.state = {

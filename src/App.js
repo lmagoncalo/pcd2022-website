@@ -10,7 +10,7 @@ import NavBar from "./Components/NavBar";
 import {Button, Container, Offcanvas} from "react-bootstrap";
 import About from "./Components/About";
 import Call from "./Components/Call";
-// import { socket } from './Components/socket';
+import { socket } from './Components/socket';
 import {AVAILABLE_COLOURS} from "./params";
 
 
@@ -53,7 +53,7 @@ class App extends Component {
     }
 
     componentWillUnmount() {
-        // this.socket.close();
+        this.socket.close();
         console.log("Component Unmounted");
     }
 
@@ -87,7 +87,7 @@ class App extends Component {
                     </Offcanvas>
 
                     <P5Wrapper isEnabled={this.isEnabled}
-                        color={this.state.color} // socket={socket}
+                        color={this.state.color} socket={socket}
                     />
                 </Container>
                 <Footer openAbout={this.openAbout} openCall={this.openCall}/>
