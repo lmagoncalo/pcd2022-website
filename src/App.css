@@ -29,6 +29,9 @@ div a, div a:hover{
     padding: 0.1em 0.4em 0.1em 0.4em;
 }
 
+.nav-link{
+    font-size: 1.5rem;
+}
 
 
 #footer .about_call_menu{
@@ -36,11 +39,22 @@ div a, div a:hover{
     text-align: center;
     color:#ffffff;
     outline: 0px solid white;
-    objectFit: fill;
+    object-fit: fill;
+    padding: 1rem;
+    font-size: 1.7em;
 }
+
+.about_call_menu:first-child{
+    border-right: 3px solid white;
+}
+
+.about_call_menu:last-child{
+    border-left: 3px solid white;
+}
+
 #footer{
     background: var(--main-color);
-    border-top:1px solid white;
+    padding: 0;
 }
 
 .offcanvas.about_call_div{
@@ -76,7 +90,7 @@ div a, div a:hover{
 
 .offcanvas .offcanvas-header{
     padding-top: 2.3rem;
-    padding-bottom: 0rem;
+    padding-bottom: 0;
 
 }
 
@@ -87,6 +101,6 @@ div a, div a:hover{
 }
 .btn-close, .btn-close:hover{
     opacity: 1;
-    filter: invert(8%) sepia(100%) saturate(6481%) hue-rotate(246deg) brightness(102%) contrast(143%);
-    fill:none;
+
+    color: var(--main-color) !important;
 }

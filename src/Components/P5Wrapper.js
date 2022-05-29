@@ -77,7 +77,7 @@ export default class P5Wrapper extends Component {
         p5.push();
         p5.noStroke();
         p5.fill(color);
-        p5.rect(x * this.state.cell_width, y * this.state.cell_height, this.state.cell_width, this.state.cell_height);
+        p5.rect(x * this.state.cell_width, y * this.state.cell_height, this.state.cell_width, this.state.cell_height, this.state.cell_width*0.3 );
         p5.pop();
     };
 

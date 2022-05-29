@@ -7,7 +7,7 @@ import P5Wrapper from "./Components/P5Wrapper";
 import {Component} from "react";
 import Footer from "./Components/Footer";
 import NavBar from "./Components/NavBar";
-import {Container, Offcanvas} from "react-bootstrap";
+import {Button, Container, Offcanvas} from "react-bootstrap";
 import About from "./Components/About";
 import Call from "./Components/Call";
 // import { socket } from './Components/socket';
@@ -71,16 +71,16 @@ class App extends Component {
             <Container>
                 <NavBar/>
                 <Container style={{marginTop: this.state.top, marginBottom: this.state.bottom}}>
-                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showAbout} onHide={this.openAbout} backdrop={false} placement={'start'} >
-                        <Offcanvas.Header closeButton disabled/>
+                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showAbout} backdrop={false} placement={'start'} >
+                        <Offcanvas.Header style={{paddingTop: 0}}><Button variant="link" style={{textDecoration:"none", fontSize:"3rem", width:"fit-content", color: "var(--main-color)", padding: 0}} onClick={this.openAbout}>✕</Button></Offcanvas.Header>
 
                         <Offcanvas.Body>
                             <About/>
                         </Offcanvas.Body>
                     </Offcanvas>
 
-                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showCall} onHide={this.openCall} backdrop={false} placement={'end'}>
-                        <Offcanvas.Header variant='custom' closeButton/>
+                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showCall} backdrop={false} placement={'end'}>
+                        <Offcanvas.Header style={{paddingTop: 0}}><Button variant="link" style={{textDecoration:"none", fontSize:"3rem", width:"fit-content", color: "var(--main-color)", padding: 0}} onClick={this.openCall}>✕</Button></Offcanvas.Header>
                         <Offcanvas.Body>
                             <Call/>
                         </Offcanvas.Body>
