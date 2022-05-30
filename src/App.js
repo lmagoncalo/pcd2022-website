@@ -10,7 +10,7 @@ import NavBar from "./Components/NavBar";
 import {Button, Container, Offcanvas} from "react-bootstrap";
 import About from "./Components/About";
 import Call from "./Components/Call";
-import { socket } from './Components/socket';
+// import { socket } from './Components/socket';
 import {AVAILABLE_COLOURS} from "./params";
 
 
@@ -20,9 +20,8 @@ class App extends Component {
 
         this.state = {
             top: "",
-            showAbout: false,
-            showCall: false,
-            enabled: true,
+            showAbout: (this.props.showAbout !== undefined ? this.props.showAbout : false),
+            showCall: (this.props.showCall !== undefined ? this.props.showCall : false),
             color: AVAILABLE_COLOURS[Math.floor(Math.random()*AVAILABLE_COLOURS.length)]
         };
 
@@ -87,7 +86,7 @@ class App extends Component {
                     </Offcanvas>
 
                     <P5Wrapper isEnabled={this.isEnabled}
-                        color={this.state.color} socket={socket}
+                        color={this.state.color} // socket={socket}
                     />
                 </Container>
                 <Footer openAbout={this.openAbout} openCall={this.openCall}/>
@@ -95,11 +94,5 @@ class App extends Component {
         )
     }
 }
-
-/*
-<P5Wrapper
-                        color={this.typoc} // socket={socket}
-                    />
- */
 
 export default App;

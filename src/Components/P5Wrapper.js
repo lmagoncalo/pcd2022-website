@@ -16,7 +16,7 @@ export default class P5Wrapper extends Component {
     bkc = '#FFFFFF';
 
     componentDidMount() {
-        this.setSocketListeners();
+        // this.setSocketListeners();
     }
 
     setSocketListeners () {
@@ -49,7 +49,7 @@ export default class P5Wrapper extends Component {
         let cell_size_y = canvas_height / this.state.n_height;
         this.setState({cell_height: cell_size_y});
 
-        let canvas = p5.createCanvas(p5.windowWidth, canvas_height).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
+        let canvas = p5.createCanvas(p5.windowWidth * 2, canvas_height * 2).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
 
         canvas.position(0, navbar.offsetHeight);
 
@@ -90,7 +90,7 @@ export default class P5Wrapper extends Component {
             let y = Math.floor(p5.mouseY / this.state.cell_height);
 
             this.drawOnCanvas(p5, x, y, this.state.fill);
-            this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
+            // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
             // console.log(x, y);
         }
     };
