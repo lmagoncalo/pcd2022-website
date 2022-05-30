@@ -12,13 +12,13 @@ console.log(process.env.PUBLIC_URL);
 root.render(
     <Router>
         <Routes>
+            <Route path="*" element={<NotFound/>}/>
+            <Route exact path={process.env.PUBLIC_URL+"/"} element={<App/>}/>
             <Route exact path={process.env.PUBLIC_URL+"/about"} element={<App showAbout={true}/>}/>
             <Route exact path={process.env.PUBLIC_URL+"/call"} element={<App  showCall={true}/>}/>
             <Route exact path={process.env.PUBLIC_URL+"/cookies-policy"} element={<CookiesPolicy />}/>
             <Route exact path={process.env.PUBLIC_URL+"/submit"} element={<Navigate to={process.env.PUBLIC_URL+"/call"} />}/>
             <Route exact path={process.env.PUBLIC_URL+"/regulation"} element={<Navigate to={process.env.PUBLIC_URL+'/media/pcd_exhibition_brief_regulation.pdf'} />}/>
-            <Route exact path={process.env.PUBLIC_URL+"/"} element={<App/>}/>
-            <Route path="*" element={<NotFound/>}/>nd/>
         </Routes>
     </Router>
 );

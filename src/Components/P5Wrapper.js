@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Sketch from 'react-p5';
+import {getCookie, setCookie} from "./utils";
+import {COOKIE_NAME, COOKIES_FADE_TIMEOUT} from "../params";
 
 export default class P5Wrapper extends Component {
     constructor(props) {
@@ -34,64 +36,48 @@ export default class P5Wrapper extends Component {
     }
 
     setup = (p5, canvasParentRef) => {
-        this.setState({width: p5.windowWidth});
         this.setState({p5: p5});
 
         let navbar = document.getElementById("navbar");
         let footer = document.getElementById("footer");
 
-        // let availableHeight = p5.windowHeight - (navbar.offsetHeight + footer.offsetHeight);
-        let cell_size_x = p5.windowWidth / this.state.n_width;
-        this.setState({cell_width: cell_size_x});
-
         let canvas_height =  p5.windowHeight - (navbar.offsetHeight + footer.offsetHeight);
-        console.log(canvas_height / this.state.n_height, parseInt(canvas_height / this.state.n_height))
-        let cell_size_y = canvas_height / this.state.n_height;
-        this.setState({cell_height: cell_size_y});
+        let cell_size = Math.floor(canvas_height * 0.03);
 
-        let canvas = p5.createCanvas(p5.windowWidth * 2, canvas_height * 2).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
+        this.setState({cell_size: cell_size});
+
+        let canvas = p5.createCanvas(this.state.n_width * cell_size, (this.state.n_height * cell_size) + footer.offsetHeight).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
 
         canvas.position(0, navbar.offsetHeight);
 
-        /*
-        for(let i=0; i<this.placed.length; i+=1){
-            this.placed[i].color = AVAILABLE_COLOURS[Math.round(Math.random()*(AVAILABLE_COLOURS.length-1))];
-        }
-
-        for(let i=0;i<10;i+=1){
-            this.placed.push({x: parseInt(p5.random(this.state.n_width)), y: parseInt(p5.random(this.state.n_height)), color: AVAILABLE_COLOURS[Math.round(Math.random()*(AVAILABLE_COLOURS.length-1))]})
-        }
-        */
         p5.background(this.bkc);
-    };
-
-    draw = (p5) => {
-        if ((0 <= p5.mouseX <= this.state.height)){
-            let x = Math.floor(p5.mouseX / this.state.cell_width);
-            let y = Math.floor(p5.mouseY / this.state.cell_height);
-            this.drawOnCanvas(p5, x, y, this.state.fill + '77');
-        }
     };
 
     drawOnCanvas = (p5, x, y, color) => {
         p5.push();
         p5.noStroke();
         p5.fill(color);
-        p5.rect(x * this.state.cell_width, y * this.state.cell_height, this.state.cell_width, this.state.cell_height, this.state.cell_width*0.3 );
+        p5.rect(x * this.state.cell_size, y * this.state.cell_size, this.state.cell_size, this.state.cell_size, this.state.cell_size*0.3 );
         p5.pop();
     };
 
 
     mouseReleased = p5 => {
-        if(p5.mouseButton === 'right') {
+        let t = getCookie(COOKIE_NAME);
+        if (t !== undefined){
+            if ((Date.now() - t) < 5000){
+                // return;
+            }
+        }
 
-        } else if(p5.mouseButton === 'left' && this.state.isEnabled()) {
-            let x = Math.floor(p5.mouseX / this.state.cell_width);
-            let y = Math.floor(p5.mouseY / this.state.cell_height);
+        if(p5.mouseButton === 'left' && this.state.isEnabled()) {
+            let x = Math.floor(p5.mouseX / this.state.cell_size);
+            let y = Math.floor(p5.mouseY / this.state.cell_size);
 
             this.drawOnCanvas(p5, x, y, this.state.fill);
+            console.log(x, y);
             // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
-            // console.log(x, y);
+            setCookie(COOKIE_NAME, Date.now(), COOKIES_FADE_TIMEOUT);
         }
     };
 

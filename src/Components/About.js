@@ -6,8 +6,6 @@ class About extends Component {
         super(props);
 
         this.state = {}
-        // this.path = '/2022/';
-        this.path = '/';
 
         this.dei = {
             default: process.env.PUBLIC_URL + "/media/dei-logo.png",

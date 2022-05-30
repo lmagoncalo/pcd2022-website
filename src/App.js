@@ -52,14 +52,13 @@ class App extends Component {
     }
 
     componentWillUnmount() {
-        this.socket.close();
+        // this.socket.close();
         console.log("Component Unmounted");
     }
 
     componentDidMount() {
         let navbar = document.getElementById("navbar");
         let footer = document.getElementById("footer");
-        console.log(navbar.offsetHeight);
 
         this.setState({top: navbar.offsetHeight + "px"});
         this.setState({bottom: footer.offsetHeight + "px"});
@@ -69,7 +68,7 @@ class App extends Component {
         return (
             <Container>
                 <NavBar/>
-                <Container style={{marginTop: this.state.top, marginBottom: this.state.bottom}}>
+                <Container>
                     <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showAbout} backdrop={false} placement={'start'} >
                         <Offcanvas.Header style={{paddingTop: 0}}><Button variant="link" style={{textDecoration:"none", fontSize:"3rem", width:"fit-content", color: "var(--main-color)", padding: 0}} onClick={this.openAbout}>✕</Button></Offcanvas.Header>
 
