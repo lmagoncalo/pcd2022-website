@@ -102,7 +102,7 @@ export default class P5Wrapper extends Component {
                 this.setState({lastPixel: null});
             } else {
                 this.drawOnCanvas(p5, x, y, this.state.fill);
-                console.log(x, y);
+                // console.log(x, y);
                 // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
                 // setCookie(COOKIE_NAME, Date.now(), COOKIES_FADE_TIMEOUT);
                 this.setState({lastPixel: [x, y]});

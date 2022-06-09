@@ -8,11 +8,11 @@ class About extends Component {
         this.state = {}
 
         this.dei = {
-            default: process.env.PUBLIC_URL + "/media/dei-logo.png",
-            hover:process.env.PUBLIC_URL + "/media/dei-logo-hover.png"
+            default: "/media/dei-logo.png",
+            hover: "/media/dei-logo-hover.png"
         }
 
-        this.cisuc = process.env.PUBLIC_URL + "/media/cisuc-logo.png";
+        this.cisuc = "/media/cisuc-logo.png";
     }
 
     render() {

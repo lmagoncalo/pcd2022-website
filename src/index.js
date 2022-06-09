@@ -8,16 +8,15 @@ import reportWebVitals from './reportWebVitals';
 import CookiesPolicy from "./Components/CookiesPolicy";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// console.log(process.env.PUBLIC_URL);
 
 root.render(
     <Router basename="/2022">
         <Routes>
             <Route path={"/about"} element={<App showAbout={true}/>}/>
-            <Route path={":call"} element={<App  showCall={true}/>}/>
-            <Route path={":cookies-policy"} element={<CookiesPolicy />}/>
-            <Route path={":submit"} element={<Navigate to={process.env.PUBLIC_URL+"/call"} />}/>
-            <Route path={":regulation"} element={<Navigate to={process.env.PUBLIC_URL+'/media/pcd_exhibition_brief_regulation.pdf'} />}/>
+            <Route path={"/call"} element={<App  showCall={true}/>}/>
+            <Route path={"/cookies-policy"} element={<CookiesPolicy />}/>
+            <Route path={"/submit"} element={<Navigate to={"/call"} />}/>
+            <Route path={"/regulation"} element={<Navigate to={'/media/pcd_exhibition_brief_regulation.pdf'} />}/>
             <Route path={"/"} element={<App/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>

@@ -8,7 +8,7 @@ class Call extends Component {
         this.path = '/';
 
         this.state = {
-            url: process.env.PUBLIC_URL + "/media/pcd_exhibition_brief_regulation.pdf",
+            url: "/media/pcd_exhibition_brief_regulation.pdf",
         }
     }
 
@@ -87,7 +87,7 @@ class Call extends Component {
                 <div className="sub_topic s-t">
                     <h4 className="sub_title_div">Submission</h4>
                     <p>Submissions must be uploaded using the online <a href="https://forms.gle/NSjbKzi1RV7w8mE56">form</a>.</p>
-                    <p><b>Deadline</b><br/><span className="line-through">30th September 2022 (23:59 UTC)</span></p>
+                    <p><b>Deadline</b><br/><span className="line-through">25th September 2022 (23:59 UTC)</span></p>
                     <p><b>Submission form link</b><br/><a href="https://forms.gle/NSjbKzi1RV7w8mE56" target="_blank" rel="noopener noreferrer">https://forms.gle/eBWQCi9JWskwpYzs8</a></p>
                 </div>
                 <div className={"sub_topic s-t"}>
