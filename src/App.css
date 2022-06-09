@@ -4,29 +4,39 @@
 
 @font-face {
     font-family: pcd_regular;
-    src: url(PCD22-Regular.ttf);
+    src: url(fonts/PCD22-Regular.ttf);
 }
 
 @font-face {
-    font-family: pcd_bold;
-    src: url(PCD22_Bold-Regular.ttf);
+    font-family: n_haas_roman;
+    src: url(fonts/NHaasGroteskTXPro-55Rg.ttf);
 }
+@font-face {
+    font-family: n_haas_medium;
+    src: url(fonts/NHaasGroteskTXPro-65Md.ttf);
+}
+@font-face {
+    font-family: n_haas_bold;
+    src: url(fonts/NHaasGroteskTXPro-75Bd.ttf);
+}
+
 
 
 div{
-    font-family: pcd_regular;
-    color: var(--main-color);
+    font-family: n_haas_roman;
+    color: black;/*var(--main-color);*/
 }
 
 div a, div a:hover{
-    font-family: pcd_regular;
+    font-family: n_haas_roman;
     color: var(--main-color);
 }
 
-#navbar, #navbar .navbar-brand{
+#navbar, #navbar .navbar-brand, #navbar div a{
     background: var(--main-color);
     font-size: 2.5rem;
     padding: 0.1em 0.4em 0.1em 0.4em;
+    font-family: pcd_regular;
 }
 
 .nav-link{
@@ -42,6 +52,7 @@ div a, div a:hover{
     object-fit: fill;
     padding: 1rem;
     font-size: 1.7em;
+    font-family: pcd_regular;
 }
 
 .about_call_menu:first-child{
@@ -59,51 +70,63 @@ div a, div a:hover{
 
 .offcanvas.about_call_div{
     width: 50%;
-    background: #F2F2F2;
+    background: white;/*#F2F2F2;*/
     border-width: 0px 3px 0px 3px;
     border-color: var(--main-color);
 }
 
 .title_div{/*about and call title*/
-    font-size: 1.9em;
+    font-size: 2.8em;
+    font-family: pcd_regular;
 }
 
-.sub_title_div{
+.sub_title_div {
     text-transform: uppercase;
     font-weight: 900;
+    font-family: pcd_regular;
+    letter-spacing: 1.7px;
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
 }
 
 .sub_topic {
+    margin-top: 2.5em;
+
+}
+
+.sub_sub_title_div {
     margin-top: 1.5em;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: n_haas_medium;
+    letter-spacing: 1.7px;
+    font-size: 1.1rem;
+    color: var(--main-color);
 }
 
-.offcanvas .offcanvas-body, .offcanvas .offcanvas-header {
-    padding: 2.3rem 2.3rem 0rem 2.3rem;
-    font-size: 1.7em;
-}
 
 .offcanvas .offcanvas-body, .offcanvas .offcanvas-header {
-    padding-left: 2.3rem;
-    padding-right: 2.3rem;
-    font-size: 1.7em;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-size: 1.4em;
 }
 
 .offcanvas .offcanvas-header{
-    padding-top: 2.3rem;
+    margin-top: 1.8rem;
     padding-bottom: 0;
 
 }
 
-.offcanvas .offcanvas-body{
-    padding-top: 1.2rem;
-    padding-bottom: 2.3rem;
-
+.offcanvas .offcanvas-body {
+    padding-top: 0rem;
+    padding-bottom: 3rem;
 }
+
 .btn-close, .btn-close:hover{
     opacity: 1;
-
     color: var(--main-color) !important;
 }
+
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -115,8 +138,22 @@ div a, div a:hover{
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+p.no-m {
+    margin-bottom: 0;
+}
 
+.text_bold{
+    font-family: n_haas_medium;
+}
+.text_enf{
+    /*color: var(--main-color);*/
+    font-style: italic;
+}
+.text_enf_color{
+    color: var(--main-color);
+    font-family: n_haas_medium;
+}
 
+li{
+    list-style-type: none;
 }

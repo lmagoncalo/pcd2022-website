@@ -36,7 +36,7 @@ class Call extends Component {
                         <br/>— Change only the function <span className="text_enf">draw_here</span> from the file <span className="text_enf">code_here</span>;
                         <br/>— Draw in the canvas <span className="text_enf">“c”</span> as in the presented example;
                         <br/>— Do not change the <span className="text_enf">size</span> or <span className="text_enf">pixel density</span> of the canvas;
-                         <br/>— Use only the colors provided in the sketch or combination of them;
+                        <br/>— Use only the colors provided in the sketch or combination of them;
                         <br/>— Set the variable <span className="text_enf">blend_mode</span> as only one of the two provided (<span className="text_enf">LIGHTEST</span> or <span className="text_enf">DARKEST</span>).</p>
 
                     <h6 className="sub_sub_title_div">Posters</h6>
