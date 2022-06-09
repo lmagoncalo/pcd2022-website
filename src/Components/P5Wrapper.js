@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import Sketch from 'react-p5';
-import {getCookie, setCookie} from "./utils";
-import {COOKIE_NAME, COOKIES_FADE_TIMEOUT} from "../params";
+// import {getCookie, setCookie} from "./utils";
+// import {COOKIE_NAME, COOKIES_FADE_TIMEOUT} from "../params";
 
 export default class P5Wrapper extends Component {
     constructor(props) {
         super(props);
         this.state = {
             fill: props.color,
-            n_width: 100,
-            n_height: 45,
+            n_width: 160,
+            n_height: 70,
             socket: props.socket,
             isEnabled: props.isEnabled,
+            lastPixel: null,
         };
     }
 
@@ -22,6 +23,10 @@ export default class P5Wrapper extends Component {
     }
 
     setSocketListeners () {
+        this.state.socket.on("remove-pixel", data => {
+            this.removeFromCanvas(this.state.p5, data.x, data.y);
+        });
+
         this.state.socket.on("new-pixel", data => {
             this.drawOnCanvas(this.state.p5, data.x, data.y, data.color);
         });
@@ -61,23 +66,41 @@ export default class P5Wrapper extends Component {
         p5.pop();
     };
 
+    removeFromCanvas = (p5, x, y) => {
+        p5.push();
+        p5.noStroke();
+        p5.fill(255);
+        p5.rect(x * this.state.cell_size, y * this.state.cell_size, this.state.cell_size, this.state.cell_size);
+        p5.pop();
+    };
+
 
     mouseReleased = p5 => {
+        /*
         let t = getCookie(COOKIE_NAME);
         if (t !== undefined){
             if ((Date.now() - t) < 5000){
-                // return;
+                return;
             }
         }
+        */
 
         if(p5.mouseButton === 'left' && this.state.isEnabled()) {
             let x = Math.floor(p5.mouseX / this.state.cell_size);
             let y = Math.floor(p5.mouseY / this.state.cell_size);
 
-            this.drawOnCanvas(p5, x, y, this.state.fill);
-            console.log(x, y);
-            // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
-            setCookie(COOKIE_NAME, Date.now(), COOKIES_FADE_TIMEOUT);
+            // If equals last pixel
+            if (this.state.lastPixel !== null && this.state.lastPixel[0] === x && this.state.lastPixel[1] === y){
+                this.removeFromCanvas(p5, x, y);
+                // this.state.socket.emit('pixel-remove', {'x': x, 'y': y});
+                this.setState({lastPixel: null});
+            } else {
+                this.drawOnCanvas(p5, x, y, this.state.fill);
+                console.log(x, y);
+                // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
+                // setCookie(COOKIE_NAME, Date.now(), COOKIES_FADE_TIMEOUT);
+                this.setState({lastPixel: [x, y]});
+            }
         }
     };
 

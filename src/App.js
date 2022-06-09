@@ -28,6 +28,8 @@ class App extends Component {
         // change colour of header in responsive
         document.documentElement.style.setProperty('--main-color', this.state.color);
 
+        // window.addEventListener("contextmenu", e => e.preventDefault());
+
         this.openAbout = this.openAbout.bind(this);
         this.openCall = this.openCall.bind(this);
         this.isEnabled = this.isEnabled.bind(this);

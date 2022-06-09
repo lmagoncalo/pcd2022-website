@@ -1,6 +1,6 @@
 export const AVAILABLE_COLOURS = [
-    '#42D92B', '#8243D9', '#1453A6',
-    '#F27405', '#F7495B'
+    '#f2647a', '#eb9e5a', '#53c7ab',
+    '#4955bf', '#8043d7'
 ];
 
 export const COOKIE_NAME = `pcdcoimbra2022_timer`;
