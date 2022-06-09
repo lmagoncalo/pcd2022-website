@@ -6,7 +6,7 @@ import '../App.css';
 class NavBar extends Component{
     render() {
         return (
-            <Navbar id="navbar" variant="dark" fixed="top">
+            <Navbar id="navbar" className="noselect" variant="dark" fixed="top">
                 <Container fluid>
                     <Navbar.Brand href="#">PCD@Coimbra 2022</Navbar.Brand>
                     <Nav className="justify-content-end" fill>

@@ -15,86 +15,79 @@ class Call extends Component {
     render() {
         return (
 
-            <section className="call-inner" style={{color: "var(--main-color)"}}>
+            <section className="call-inner">
                 <p className="title_div">Call for Works</p>
                 <div className="call-into">
-                    <p>
-                        The Processing Community Day @ Coimbra 2022 invites professionals, researchers, students, designers and artists to submit individual or collective projects that visually and/or conceptually explore techniques or subjects related to the theme <b>“Community”</b>.<br/>
-                        In this PCD@Coimbra edition, we welcome the submission of artworks to three distinct tracks:
-                        <ul>
-                            <li>Community modules.</li>
-                            <li>Poster.</li>
-                            <li>Open Submission.</li>
-                        </ul>
-                        The selected artworks will be exhibited and/or presented during the PCD@Coimbra in one or more exhibition venues in Coimbra, Portugal.
+                    <p><span className="text_bold">The Processing Community Day @ Coimbra 2022</span> invites professionals, researchers, students, designers and artists to submit individual or collective projects that visually and/or conceptually explore techniques or subjects related to the theme <span className="text_bold">“Community”</span>.</p>
+                    <p>In this <span className="text_bold">PCD@Coimbra</span> edition, we welcome the submission of artworks to <span className="text_bold">three distinct tracks</span>:
+                        <br/>— Community modules
+                        <br/>— Poster
+                        <br/>— Open Submission<br/>
                     </p>
+                    <p>The selected artworks will be exhibited and/or presented during the PCD@Coimbra in one or more exhibition venues in Coimbra, Portugal.</p>
+
                 </div>
 
 
                 <div className="sub_topic s-t">
                     <h4 className="sub_title_div">Requirements</h4>
-                    <ul>
-                        <li><b>Community modules.</b> Any type of artwork that fits in the template provided (<a href="https://openprocessing.org/sketch/1594388">here</a>) and meets the following requirements:
-                            <ul>
-                                <li>Change only the function <i>draw_here</i> from the file <i>code_here</i>.</li>
-                                <li>Draw in the canvas “c” as in the presented example.</li>
-                                <li>Do not change the size or pixel density of the canvas.</li>
-                                <li>Use only the colors provided in the sketch or combination of them.</li>
-                                <li>Set the variable blend_mode as only one of the two provided (LIGHTEST or DARKEST).</li>
-                            </ul>
-                        </li>
-                        <li><b>Poster.</b> Posters that fit two main requirements: designed using code and within the theme “community”. Code (any programming language) must be used in at least one stage of the design process. Code can be used either to produce materials (for example images) or in the final generation (generating the whole artefact). Provided that you fulfil these requirements, you are allowed to use any media, material or technique.</li>
-                        <li><b>Open Submission.</b> Any type of artwork that fits two main requirements: use code and within the theme “community”. For example: system/applications, performances that involve the interaction with a system or its outputs, etc.</li>
-                    </ul>
+                    <h6 className="sub_sub_title_div">Community modules</h6>
+                    <p>Any type of artwork that <span className="text_bold">fits in the template</span>  provided(<a href="https://openprocessing.org/sketch/1594388">here</a>) and meets the following requirements:
+                        <br/>— Change only the function <span className="text_enf">draw_here</span> from the file <span className="text_enf">code_here</span>;
+                        <br/>— Draw in the canvas <span className="text_enf">“c”</span> as in the presented example;
+                        <br/>— Do not change the <span className="text_enf">size</span> or <span className="text_enf">pixel density</span> of the canvas;
+                         <br/>— Use only the colors provided in the sketch or combination of them;
+                        <br/>— Set the variable <span className="text_enf">blend_mode</span> as only one of the two provided (<span className="text_enf">LIGHTEST</span> or <span className="text_enf">DARKEST</span>).</p>
+
+                    <h6 className="sub_sub_title_div">Posters</h6>
+                    <p>Posters that fit two main requirements: <span className="text_bold">designed using code</span> and <span className="text_bold">within the theme “Community”</span>. Code (any programming language) must be used in at least one stage of the design process. Code can be used either to produce materials (for example images) or in the final generation (generating the whole artefact). Provided that you fulfil these requirements, you are allowed to use any media, material or technique.</p>
+
+                    <h6 className="sub_sub_title_div">Open Submission</h6>
+                    <p>Any type of artwork that fits two main requirements: <span className="text_bold">use code</span> and <span className="text_bold">within the theme “Community”</span>. For example: system/applications, performances that involve the interaction with a system or its outputs, etc.</p>
+
                 </div>
 
                 <div className="sub_topic s-t">
                     <h4 className="sub_title_div">How to participate</h4>
-                    <ul>
-                        <li>We accept both individual and collective submissions. In the case of collective submissions, the authors must indicate one corresponding author who may be contacted by the organisers.</li>
-                        <li>The participants are allowed to submit multiple entries.</li>
-                        <li>Submissions can only be made via the online submission link (see Submission section below).</li>
-                        <li>Failure to comply these conditions will invalidate the participation.</li>
-                    </ul>
+                    <p>— Participation is <span className="text_bold">free of charge</span>.
+                        <br/>— We accept both <span className="text_bold">individual</span> and <span className="text_bold">collective submissions</span>. In the case of collective submissions, the authors must indicate one corresponding author who may be contacted by the organisers.
+                        <br/>— The participants are allowed to submit <span className="text_bold">multiple entries</span>.
+                        <br/>— Submissions can only be made via the <span className="text_bold">online submission link</span> (see Submission section below).
+                        <br/>— Failure to comply these conditions will invalidate the participation.
+                    </p>
                 </div>
 
 
                 <div className="sub_topic s-t">
                     <h4 className="sub_title_div">Submission</h4>
                     <p>In addition to completing all the fields of the online form, you are required to submit the following materials:</p>
-                    <ul>
-                        <li><b>Brief description of your project</b> (max. 500 characters) describing the concept and clearly
-                            stating how computer code was used, either in the process or for the final generation. We
-                            accept descriptions in Portuguese and English (preferred language);
-                        </li>
-                        <li>
-                            <b>Artwork files.</b> The type of submission depends on the track. We are accepting three distinct types of submission:<br/>
-                        </li>
-                        <ul style={{listStyleType: "none"}}>
-                            <li>
-                                <b>1. Community modules</b><br/> The output should be a link to a public sketch in the OpenProcessing (<a href="https://openprocessing.org">https://openprocessing.org</a>), P5js Editor (<a href="https://p5js.org/">https://p5js.org/</a>) or other code-sharing platforms. It must be a modified copy of the provided template and it must follow the presented requirements.
-                            </li>
-                            <li>
-                                <b>2. Poster</b><br/> The output should be submitted in B2 poster format (500mm x 700mm) in a portrait orientation (PDF file, 300 DPI, Color profile: CMYK).
-                            </li>
-                            <li>
-                                <b>3. Open Submission</b><br/> Materials that show the artwork, such as a video demonstration or access to the application. The authors should provide the requirements of the installation. Materials (e.g. video) can be submitted using a file hosting service (e.g. Dropbox or Google Drive).
-                            </li>
-                        </ul>
+                    <p><span className="text_enf_color">(i) </span> <span className="text_bold">Brief description</span> of your project (max. 500 characters) describing the concept and clearly
+                        stating how computer code was used, either in the process or for the final generation. We accept descriptions in Portuguese and English (preferred language);</p>
+                    <p><span className="text_enf_color">(ii) </span><span className="text_bold">Artwork files</span>. The type of submission depends on the track. We are accepting three distinct types of submission:</p>
 
-                    </ul>
+                    <h6 className="sub_sub_title_div">Community modules</h6>
+                    <p>The output should be a <span className="text_bold">link</span> to a public sketch in the <span className="text_bold">OpenProcessing</span> (<a href="https://openprocessing.org">https://openprocessing.org</a>), <span className="text_bold">P5js Editor</span> (<a href="https://p5js.org/">https://p5js.org/</a>) or other code-sharing platforms. It must be a modified copy of the provided template and it must follow the presented requirements.</p>
+
+                    <h6 className="sub_sub_title_div">Posters</h6>
+                    <p>The output should be submitted in <span className="text_bold">B2 poster format</span> (500mm x 700mm) in a <span className="text_bold">portrait orientation</span> (PDF file, 300 DPI, Color profile: CMYK).</p>
+
+                    <h6 className="sub_sub_title_div">Open Submission</h6>
+                    <p>Materials that show the artwork, such as a <span className="text_bold">video demonstration</span> or <span className="text_bold">access to the application</span>. The authors should provide the requirements of the installation. Materials (e.g. video) can be submitted using a file hosting service (e.g. Dropbox or Google Drive).</p>
                 </div>
+
                 <div className="sub_topic s-t">
-                    <h4 className="sub_title_div">Submission</h4>
+                    <h4 className="sub_title_div">Deadline</h4>
+                    <p><span className="text_bold">25th September 2022</span> (23:59 UTC)</p>
+                </div>
+
+                    <div className="sub_topic s-t">
+                        <h4 className="sub_title_div">Submission Form</h4>
                     <p>Submissions must be uploaded using the online <a href="https://forms.gle/NSjbKzi1RV7w8mE56">form</a>.</p>
-                    <p><b>Deadline</b><br/><span className="line-through">25th September 2022 (23:59 UTC)</span></p>
-                    <p><b>Submission form link</b><br/><a href="https://forms.gle/NSjbKzi1RV7w8mE56" target="_blank" rel="noopener noreferrer">https://forms.gle/eBWQCi9JWskwpYzs8</a></p>
-                </div>
-                <div className={"sub_topic s-t"}>
-                    <p>
-                        Before submitting, participants should read the <a href={this.state.url} target="_blank" rel="noopener noreferrer" >brief document,</a> which contains detailed information about the call and can be downloaded <a href={this.state.url} target="_blank" rel="noopener noreferrer" >here</a>.
+                        <p>Before submitting, participants should read the brief document, which contains detailed information about the call and can be downloaded <a href={this.state.url} target="_blank" rel="noopener noreferrer" >here</a>.
                     </p>
+
                 </div>
+
                 <div className="sub_topic s-t">
                     <h4 className="sub_title_div">Jury</h4>
                     <p>
@@ -103,9 +96,8 @@ class Call extends Component {
                 </div>
                 <div className="sub_topic s-t">
                     <h4 className="sub_title_div">More info</h4>
-                    <p>
-                        If you have any questions please contact us using the email pcdcoimbra(at)dei.uc.pt
-                    </p>
+                    <p>If you have any questions please contact us using the email <a
+                        href="mailto:pcdcoimbra@dei.uc.pt">pcdcoimbra(at)dei.uc.pt</a></p>
                 </div>
                 <p>
                     © 2022

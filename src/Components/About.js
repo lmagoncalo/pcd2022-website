@@ -20,9 +20,9 @@ class About extends Component {
             <section className="about-inner" >
                 <p className="title_div">About</p>
                 <div>
-                    <p>The Processing Community Day initiative is supported by the <a href="https://processingfoundation.org/" target="_blank" rel="noreferrer">Processing Foundation</a> and has the goal of celebrating art, code and diversity while promoting creative coding and computational thinking as tools for creative students, researchers and professionals.</p>
-                    <p>PCD@Coimbra aims at being a showcase for what is currently being developed in Portugal, especially in Coimbra, and also a place for stimulating discussion and initiating future collaborations.</p>
-                    <p>In 2022, PCD@Coimbra includes workshops, exhibitions and talk sessions.</p>
+                    <p><span className="text_bold">The Processing Community Day</span>  initiative is supported by the <a href="https://processingfoundation.org/" target="_blank" rel="noreferrer">Processing Foundation</a> and has the goal of celebrating art, code and diversity while promoting creative coding and computational thinking as tools for creative students, researchers and professionals.</p>
+                    <p><span className="text_bold">PCD@Coimbra</span> aims at being a showcase for what is currently being developed in <span className="text_bold">Portugal</span>, especially in <span className="text_bold">Coimbra</span>, and also a place for stimulating discussion and initiating future collaborations.</p>
+                    <p>In 2022, <span className="text_bold">PCD@Coimbra</span> includes workshops, exhibitions and talk sessions.</p>
                     {/* <p>Participation in all events of PCD@Coimbra 2022 is free, but registration in workshops and talks session is required (register <a href="https://www.eventbrite.com/e/processing-community-daycoimbra-2021-tickets-217130562357">here</a>).</p> */}
                     <p>We warmly welcome all people who are interested in creative coding, both from the local and the external community. Be free to join us. </p>
 
