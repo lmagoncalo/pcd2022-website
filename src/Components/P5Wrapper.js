@@ -55,6 +55,12 @@ export default class P5Wrapper extends Component {
 
         canvas.position(0, navbar.offsetHeight);
 
+        let max_x = (this.state.n_width * cell_size) - p5.windowWidth;
+        let max_y = (this.state.n_height * cell_size) - (p5.windowHeight - (navbar.offsetHeight + footer.offsetHeight));
+        let random_x = p5.random(0, max_x);
+        let random_y = p5.random(0, max_y);
+        window.scrollTo(random_x, random_y);
+
         p5.background(this.bkc);
     };
 
