@@ -8,7 +8,7 @@ class NavBar extends Component{
         return (
             <Navbar id="navbar" className="noselect" variant="dark" fixed="top">
                 <Container fluid>
-                    <Navbar.Brand href="#">PCD@Coimbra 2022</Navbar.Brand>
+                    <Navbar.Brand href="#"><span>PCD@Coimbra 2022</span></Navbar.Brand>
                     <Nav className="justify-content-end" fill>
                         <Nav.Link href="https://www.facebook.com/pcdcoimbra">fb</Nav.Link>
                         <Nav.Link href="https://www.instagram.com/pcdcoimbra/">ig</Nav.Link>

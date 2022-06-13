@@ -157,3 +157,30 @@ p.no-m {
 li{
     list-style-type: none;
 }
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #navbar, #navbar .navbar-brand, #navbar div a{
+        background: rgb(0,0,255);
+        font-size: 1.5rem;
+    }
+
+    .navbar-brand span {
+        display: none;
+    }
+    .navbar-brand:after {
+        content: 'PCD2022';
+    }
+
+    #footer .about_call_menu {
+        font-size: 1.0rem;
+    }
+
+    .offcanvas.about_call_div {
+        width: 100%;
+    }
+}
+
