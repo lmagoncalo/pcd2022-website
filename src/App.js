@@ -71,18 +71,18 @@ class App extends Component {
             <Container>
                 <NavBar/>
                 <Container>
-                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showAbout} backdrop={false} placement={'start'} >
+                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showCall} backdrop={false} placement={'start'}>
+                        <Offcanvas.Header style={{paddingTop: 0}}><Button variant="link" style={{textDecoration:"none", fontSize:"3rem", width:"fit-content", color: "var(--main-color)", padding: 0}} onClick={this.openCall}>✕</Button></Offcanvas.Header>
+                        <Offcanvas.Body>
+                            <Call/>
+                        </Offcanvas.Body>
+                    </Offcanvas>
+
+                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showAbout} backdrop={false} placement={'end'} >
                         <Offcanvas.Header style={{paddingTop: 0}}><Button variant="link" style={{textDecoration:"none", fontSize:"3rem", width:"fit-content", color: "var(--main-color)", padding: 0}} onClick={this.openAbout}>✕</Button></Offcanvas.Header>
 
                         <Offcanvas.Body>
                             <About/>
-                        </Offcanvas.Body>
-                    </Offcanvas>
-
-                    <Offcanvas className="about_call_div" style={{marginTop: this.state.top, marginBottom: this.state.bottom}} show={this.state.showCall} backdrop={false} placement={'end'}>
-                        <Offcanvas.Header style={{paddingTop: 0}}><Button variant="link" style={{textDecoration:"none", fontSize:"3rem", width:"fit-content", color: "var(--main-color)", padding: 0}} onClick={this.openCall}>✕</Button></Offcanvas.Header>
-                        <Offcanvas.Body>
-                            <Call/>
                         </Offcanvas.Body>
                     </Offcanvas>
 

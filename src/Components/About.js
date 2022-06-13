@@ -13,6 +13,7 @@ class About extends Component {
         }
 
         this.cisuc = process.env.PUBLIC_URL + "/media/cisuc-logo.png";
+        this.newsletter = process.env.PUBLIC_URL + "/newsletter";
     }
 
     render() {
@@ -26,7 +27,7 @@ class About extends Component {
                     {/* <p>Participation in all events of PCD@Coimbra 2022 is free, but registration in workshops and talks session is required (register <a href="https://www.eventbrite.com/e/processing-community-daycoimbra-2021-tickets-217130562357">here</a>).</p> */}
                     <p>We warmly welcome all people who are interested in creative coding, both from the local and the external community. Be free to join us. </p>
 
-                    <p>Subscribe our newsletter <a href="http://pcdcoimbra.dei.uc.pt/2021/newsletter">here.</a></p>
+                    <p>Subscribe our newsletter <a href={this.newsletter}>here.</a></p>
                 </div>
                 <div className="sub_topic">
                     <h4 className="sub_title_div">Main Location</h4>

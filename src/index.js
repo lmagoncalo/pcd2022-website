@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Link, Navigate, Route, Routes} from "react-router-dom";
 import App from './App';
 import NotFound from './Not-Found';
 
 import reportWebVitals from './reportWebVitals';
 import CookiesPolicy from "./Components/CookiesPolicy";
+import {Newsletter} from "./Components/Newsletter";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -17,6 +18,7 @@ root.render(
             <Route path={"/cookies-policy"} element={<CookiesPolicy />}/>
             <Route path={"/submit"} element={<Navigate to={"/call"} />}/>
             <Route path={"/regulation"} element={<Navigate to={'/media/pcd_exhibition_brief_regulation.pdf'} />}/>
+            <Route path={"/newsletter"} element={<Newsletter/>}/>
             <Route path={"/"} element={<App/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>

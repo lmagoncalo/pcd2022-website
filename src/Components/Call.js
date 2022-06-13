@@ -8,7 +8,7 @@ class Call extends Component {
         this.path = '/';
 
         this.state = {
-            url: "/media/pcd_exhibition_brief_regulation.pdf",
+            url: process.env.PUBLIC_URL + "/media/pcd_exhibition_brief_regulation.pdf",
         }
     }
 
@@ -30,9 +30,9 @@ class Call extends Component {
 
 
                 <div className="sub_topic s-t">
-                    <h4 className="sub_title_div">Requirements</h4>
+                    <h4 className="sub_title_div">Submission Tracks</h4>
                     <h6 className="sub_sub_title_div">Community modules</h6>
-                    <p>Any type of artwork that <span className="text_bold">fits in the template</span>  provided(<a href="https://openprocessing.org/sketch/1594388">here</a>) and meets the following requirements:
+                    <p>Any type of artwork that <span className="text_bold">fits in the template</span> provided (<a href="https://openprocessing.org/sketch/1594388">here</a>) and meets the following requirements:
                         <br/>— Change only the function <span className="text_enf">draw_here</span> from the file <span className="text_enf">code_here</span>;
                         <br/>— Draw in the canvas <span className="text_enf">“c”</span> as in the presented example;
                         <br/>— Do not change the <span className="text_enf">size</span> or <span className="text_enf">pixel density</span> of the canvas;
@@ -49,6 +49,7 @@ class Call extends Component {
 
                 <div className="sub_topic s-t">
                     <h4 className="sub_title_div">How to participate</h4>
+                    <p>The brief document containing detailed information about the call can be downloaded <a href={this.state.url} target="_blank" rel="noopener noreferrer" >here</a>.</p>
                     <p>— Participation is <span className="text_bold">free of charge</span>.
                         <br/>— We accept both <span className="text_bold">individual</span> and <span className="text_bold">collective submissions</span>. In the case of collective submissions, the authors must indicate one corresponding author who may be contacted by the organisers.
                         <br/>— The participants are allowed to submit <span className="text_bold">multiple entries</span>.
