@@ -14,7 +14,6 @@ class Call extends Component {
 
     render() {
         return (
-
             <section className="call-inner">
                 <p className="title_div">Call for Works</p>
                 <div className="call-into">
@@ -44,7 +43,6 @@ class Call extends Component {
 
                     <h6 className="sub_sub_title_div">Open Submission</h6>
                     <p>Any type of artwork that fits two main requirements: <span className="text_bold">use code</span> and <span className="text_bold">within the theme “Community”</span>. For example: system/applications, performances that involve the interaction with a system or its outputs, etc.</p>
-
                 </div>
 
                 <div className="sub_topic s-t">
