@@ -158,7 +158,9 @@ li{
     list-style-type: none;
 }
 
-
+.justify-content-center {
+    justify-content: space-between !important;
+}
 
 
 /* Extra small devices (phones, 600px and down) */

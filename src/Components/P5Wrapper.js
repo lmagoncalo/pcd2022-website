@@ -13,13 +13,14 @@ export default class P5Wrapper extends Component {
             socket: props.socket,
             isEnabled: props.isEnabled,
             lastPixel: null,
+            released: true
         };
     }
 
     bkc = '#FFFFFF';
 
     componentDidMount() {
-        // this.setSocketListeners();
+        this.setSocketListeners();
     }
 
     setSocketListeners () {
@@ -80,8 +81,12 @@ export default class P5Wrapper extends Component {
         p5.pop();
     };
 
-
     mouseReleased = p5 => {
+        this.setState({released: true});
+    }
+
+
+    mousePressed = p5 => {
         /*
         let t = getCookie(COOKIE_NAME);
         if (t !== undefined){
@@ -91,6 +96,12 @@ export default class P5Wrapper extends Component {
         }
         */
 
+        if(this.state.released !== true){
+            return;
+        }
+
+        this.setState({released: false});
+
         if(p5.mouseButton === 'left' && this.state.isEnabled()) {
             let x = Math.floor(p5.mouseX / this.state.cell_size);
             let y = Math.floor(p5.mouseY / this.state.cell_size);
@@ -98,12 +109,12 @@ export default class P5Wrapper extends Component {
             // If equals last pixel
             if (this.state.lastPixel !== null && this.state.lastPixel[0] === x && this.state.lastPixel[1] === y){
                 this.removeFromCanvas(p5, x, y);
-                // this.state.socket.emit('pixel-remove', {'x': x, 'y': y});
+                this.state.socket.emit('pixel-remove', {'x': x, 'y': y});
                 this.setState({lastPixel: null});
             } else {
                 this.drawOnCanvas(p5, x, y, this.state.fill);
                 // console.log(x, y);
-                // this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
+                this.state.socket.emit('pixel-place', {'x': x, 'y': y, 'color':this.state.fill});
                 // setCookie(COOKIE_NAME, Date.now(), COOKIES_FADE_TIMEOUT);
                 this.setState({lastPixel: [x, y]});
             }
@@ -115,7 +126,7 @@ export default class P5Wrapper extends Component {
     };
 
     render() {
-        return <Sketch className='p5-wrapper' setup={this.setup} mouseReleased={this.mouseReleased}/>;
+        return <Sketch className='p5-wrapper' setup={this.setup} mouseReleased={this.mouseReleased}  mousePressed={this.mousePressed}/>;
     }
 }
 
