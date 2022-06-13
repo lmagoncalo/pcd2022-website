@@ -13,7 +13,6 @@ export default class P5Wrapper extends Component {
             socket: props.socket,
             isEnabled: props.isEnabled,
             lastPixel: null,
-            released: true
         };
     }
 
@@ -81,12 +80,8 @@ export default class P5Wrapper extends Component {
         p5.pop();
     };
 
+
     mouseReleased = p5 => {
-        this.setState({released: true});
-    }
-
-
-    mousePressed = p5 => {
         /*
         let t = getCookie(COOKIE_NAME);
         if (t !== undefined){
@@ -95,12 +90,6 @@ export default class P5Wrapper extends Component {
             }
         }
         */
-
-        if(this.state.released !== true){
-            return;
-        }
-
-        this.setState({released: false});
 
         if(p5.mouseButton === 'left' && this.state.isEnabled()) {
             let x = Math.floor(p5.mouseX / this.state.cell_size);
@@ -118,15 +107,20 @@ export default class P5Wrapper extends Component {
                 // setCookie(COOKIE_NAME, Date.now(), COOKIES_FADE_TIMEOUT);
                 this.setState({lastPixel: [x, y]});
             }
+
         }
     };
+
+    touchEnded = p5 => {
+        return;
+    }
 
     clean = p5 => {
         p5.background(this.bkc);
     };
 
     render() {
-        return <Sketch className='p5-wrapper' setup={this.setup} mouseReleased={this.mouseReleased}  mousePressed={this.mousePressed}/>;
+        return <Sketch className='p5-wrapper' setup={this.setup} mouseReleased={this.mouseReleased} touchEnded={this.touchEnded}/>;
     }
 }
 
